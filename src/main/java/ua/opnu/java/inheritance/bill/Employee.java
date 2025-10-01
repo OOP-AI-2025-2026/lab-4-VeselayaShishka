@@ -1,4 +1,4 @@
-package ua.opnu;
+package ua.opnu.java.inheritance.bill;
 
 public class Employee {
 
