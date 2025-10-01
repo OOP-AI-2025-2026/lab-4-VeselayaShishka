@@ -17,7 +17,7 @@ public class BankingAccount {
   }
 
   public void credit(Credit c) {
-    balance = balance - c.getBalance();
+    balance = balance + c.getBalance();
   }
 
   public int getBalance() {
