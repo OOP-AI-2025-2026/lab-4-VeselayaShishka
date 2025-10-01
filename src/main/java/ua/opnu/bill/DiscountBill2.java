@@ -1,4 +1,4 @@
-package ua.opnu.java.inheritance.bill;
+package ua.opnu.bill;
 
 import java.util.ArrayList;
 
@@ -42,5 +42,17 @@ public class DiscountBill2 {
 
   public double getDiscountPercent() {
     return 100 - ((getTotal() * 100) / bill.getTotal());
+  }
+
+  public Employee getClerk() {
+    return bill.getClerk();
+  }
+
+  public void add(Item i) {
+    bill.add(i);
+  }
+
+  public ArrayList<Item> getItems() {
+    return bill.getItems();
   }
 }

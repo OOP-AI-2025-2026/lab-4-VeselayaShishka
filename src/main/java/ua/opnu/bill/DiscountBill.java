@@ -1,4 +1,4 @@
-package ua.opnu.java.inheritance.bill;
+package ua.opnu.bill;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class DiscountBill extends GroceryBill {
   public double getTotal() {
     if (!regularCustomer) return super.getTotal();
     else {
-      return super.getTotal() - getDiscountAmmount();
+      return super.getTotal() - getDiscountAmount();
     }
   }
 
@@ -31,7 +31,7 @@ public class DiscountBill extends GroceryBill {
     return count;
   }
 
-  public double getDiscountAmmount() {
+  public double getDiscountAmount() {
     double ammount = 0;
     for (Item item : items) {
       ammount += item.getDiscount();

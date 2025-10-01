@@ -1,4 +1,4 @@
-package ua.opnu.java.inheritance.point;
+package ua.opnu.point;
 
 public class Point {
 
@@ -36,11 +36,11 @@ public class Point {
     return distance(new Point(0, 0));
   }
 
-  final int getX() {
+  public final int getX() {
     return this.x;
   }
 
-  final int getY() {
+  public final int getY() {
     return this.y;
   }
 

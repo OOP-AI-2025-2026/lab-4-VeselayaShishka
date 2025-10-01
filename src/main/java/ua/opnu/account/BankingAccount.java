@@ -1,4 +1,4 @@
-package ua.opnu.java.inheritance.account;
+package ua.opnu.account;
 
 public class BankingAccount {
 
