@@ -14,6 +14,7 @@ public class DiscountBill2 {
 
   public int getDiscountCount() {
     int count = 0;
+      if (!regularCustomer) {return count;}
     ArrayList<Item> items = bill.getItems();
 
     for (Item item : items) {
@@ -26,22 +27,23 @@ public class DiscountBill2 {
 
   public double getDiscountAmount() {
     double amount = 0;
+    if (!regularCustomer) {return amount;}
     ArrayList<Item> items = bill.getItems();
     for (Item item : items) {
       amount += item.getDiscount();
     }
-    return amount;
+    return Math.round(amount*100)/100.0;
   }
 
   public double getTotal() {
     if (!regularCustomer) {
       return bill.getTotal();
     }
-    return bill.getTotal() - getDiscountAmount();
+    return Math.round((bill.getTotal() - getDiscountAmount())*100)/100.0;
   }
 
   public double getDiscountPercent() {
-    return 100 - ((getTotal() * 100) / bill.getTotal());
+    return Math.round((100 - ((getTotal() * 100) / bill.getTotal()))*1e13)/1e13;
   }
 
   public Employee getClerk() {

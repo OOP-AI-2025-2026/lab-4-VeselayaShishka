@@ -4,6 +4,19 @@ import java.util.ArrayList;
 
 public class DiscountBill extends GroceryBill {
 
+    public static void  main(String[] args){
+        boolean preferred = true;
+        DiscountBill bill = new DiscountBill(new Employee("clerk-1"), preferred);
+        bill.add(new Item("vinegar", 4.18, 0.0));
+        bill.add(new Item("soup", 2.50, 0.15));
+        bill.add(new Item("rice", 3.0, 0.75));
+        bill.add(new Item("coffee", 4.25, 0.25));
+        bill.add(new Item("flour", 6.50, 2.25));
+
+        double expected = 16.6421928536466;
+        System.out.println(bill.getDiscountPercent());
+    }
+
   private boolean regularCustomer;
   private ArrayList<Item> items = getItems();
 
@@ -15,7 +28,7 @@ public class DiscountBill extends GroceryBill {
   public double getTotal() {
     if (!regularCustomer) return super.getTotal();
     else {
-      return super.getTotal() - getDiscountAmount();
+        return Math.round((super.getTotal() - getDiscountAmount())*100)/100.0 ;
     }
   }
 
@@ -24,7 +37,7 @@ public class DiscountBill extends GroceryBill {
     int count = 0;
 
     for (Item item : items) {
-      if (item.getDiscount() > 0) {
+      if (regularCustomer &&item.getDiscount() > 0) {
         count++;
       }
     }
@@ -32,14 +45,16 @@ public class DiscountBill extends GroceryBill {
   }
 
   public double getDiscountAmount() {
-    double ammount = 0;
+    double amount = 0;
+    if (!regularCustomer) {return 0;}
     for (Item item : items) {
-      ammount += item.getDiscount();
+
+      amount += item.getDiscount();
     }
-    return ammount;
+      return Math.round(amount*100)/100.0;
   }
 
   public double getDiscountPercent() {
-    return 100 - ((getTotal() * 100) / super.getTotal());
+    return Math.round((100 - ((getTotal() * 100) / super.getTotal()))*1e13)/1e13;
   }
 }

@@ -51,6 +51,10 @@ public class Point3D extends Point {
         Math.pow(this.x - p.x, 2) + Math.pow(this.y - p.y, 2) + Math.pow(this.z - p.z, 2));
   }
 
+    public double distanceFromOrigin() {
+        return distance(new Point3D(0, 0, 0));
+    }
+
   @Override
   public String toString() {
     return "Point{" + "x=" + x + ", y=" + y + ", z=" + z + '}';
