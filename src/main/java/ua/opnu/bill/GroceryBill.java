@@ -29,7 +29,7 @@ public class GroceryBill {
     for (Item item : items) {
       total += item.getPrice();
     }
-    return Math.round(total*100)/100.0;
+    return Math.round(total * 100) / 100.0;
   }
 
   public ArrayList<Item> getItems() {

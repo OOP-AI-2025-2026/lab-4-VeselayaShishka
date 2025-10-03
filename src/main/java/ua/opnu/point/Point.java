@@ -2,16 +2,6 @@ package ua.opnu.point;
 
 public class Point {
 
-  public static void main(String[] args) {
-
-    Point p = new Point();
-    Point p1 = new Point(1, 2);
-    Point p2 = new Point(new Point(3, 4));
-
-    System.out.println(p.distance(p1));
-    System.out.println(p1.distanceFromOrigin());
-  }
-
   public int x, y;
 
   public Point() {
